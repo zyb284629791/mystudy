@@ -1,6 +1,7 @@
 package com.john;
 
 import com.john.register.URL;
+import com.john.register.persistence.MapFilePersistence;
 import com.john.register.persistence.MapRedisPersistence;
 import com.john.register.persistence.Persistence;
 
@@ -22,7 +23,7 @@ public class MapRegister {
         map.put(url, clazz);
         REGISTER.put(interfaceName, map);
 
-        Persistence persistence = new MapRedisPersistence();
+        Persistence persistence = new MapFilePersistence();
         persistence.persist(REGISTER);
     }
 
@@ -37,7 +38,7 @@ public class MapRegister {
 
     public static URL getURL(String interfaceName) {
         if (REGISTER.size() == 0) {
-            Persistence persistence = new MapRedisPersistence();
+            Persistence persistence = new MapFilePersistence();
             REGISTER = persistence.loadMapRegister();
         }
         Iterator<URL> iterator = REGISTER.get(interfaceName).keySet().iterator();
