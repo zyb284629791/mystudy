@@ -13,5 +13,6 @@ public class SpringStudy {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         HelloService helloService = applicationContext.getBean("helloService", HelloService.class);
         helloService.sayHello("John");
+        helloService.test();
     }
 }

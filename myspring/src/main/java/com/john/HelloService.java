@@ -1,7 +1,10 @@
 package com.john;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.inject.Inject;
 
 /**
  * @Author: 张彦斌
@@ -10,7 +13,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class HelloService {
 
+    @Autowired
+    private HelloDao helloRepostory;
+
+    @Autowired
+    private TestDao testDao;
+
     public void sayHello(String name){
-        System.out.printf("Hello %s \n", name);
+        helloRepostory.sayHello(name);
+    }
+
+    public void test(){
+        testDao.test();
     }
 }

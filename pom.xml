@@ -13,6 +13,7 @@
         <module>mydubbo</module>
         <module>myspring</module>
         <module>mydesignpatten</module>
+        <module>mybatis-learning</module>
     </modules>
 
     <properties>
