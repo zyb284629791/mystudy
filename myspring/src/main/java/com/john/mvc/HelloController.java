@@ -12,19 +12,19 @@ import java.util.Arrays;
  * @Date: 2019-04-03 10:57
  */
 @RestController
-@RequestMapping("/hello")
+@RequestMapping("/helloController")
 public class HelloController {
 
     @Autowired
     private HelloService helloService;
 
-    @GetMapping("/hello")
+    @GetMapping("/sayHello")
     public String sayHello(@RequestParam String guests){
         helloService.sayHello(guests);
         return "success";
     }
 
-    @GetMapping("/hellos")
+    @GetMapping("/sayHellos")
     public String sayHello(@RequestParam String[] guests){
         Arrays.asList(guests).forEach( guest -> {
             helloService.sayHello(guest);
@@ -32,9 +32,10 @@ public class HelloController {
         return "success";
     }
 
-    @GetMapping("/hello/{guest}")
+    @GetMapping("/sayHello2/{guest}")
     public String sayHello2(@PathVariable String guest){
         helloService.sayHello(guest);
+        helloService.testConnection(1);
         return "success";
     }
 }

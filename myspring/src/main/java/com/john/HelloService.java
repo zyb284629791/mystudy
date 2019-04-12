@@ -26,4 +26,8 @@ public class HelloService {
     public void test(){
         testDao.test();
     }
+
+    public void testConnection(long id){
+        helloRepostory.testConnection(id);
+    }
 }
