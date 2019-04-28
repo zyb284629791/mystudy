@@ -19,15 +19,15 @@ public class HelloDao {
 
     private String defaultName = "Java";
 
-    @Autowired
-    private JdbcOperations jdbcOperations;
+    /*@Autowired
+    private JdbcOperations jdbcOperations;*/
 
     public void sayHello(String name){
         System.out.printf("Hello %s \n", StringUtils.isEmpty(name) ? defaultName : name);
     }
 
     public void testConnection(long id){
-        User user = (User) jdbcOperations.queryForObject("select * from t_user t where t.id = ?",new Object[]{id}, new BeanPropertyRowMapper(User.class));
-        System.out.println(user);
+        /*User user = (User) jdbcOperations.queryForObject("select * from t_user t where t.id = ?",new Object[]{id}, new BeanPropertyRowMapper(User.class));
+        System.out.println(user);*/
     }
 }
